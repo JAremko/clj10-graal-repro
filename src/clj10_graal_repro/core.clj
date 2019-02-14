@@ -1,12 +1,8 @@
 (ns clj10-graal-repro.core
-  (:require [clojure.spec.alpha :as s]
-            [clojure.spec.gen.alpha :as gen])
+  (:require [clojure.spec.alpha :as s])
   (:gen-class))
 
-
-(s/def ::foo (s/with-gen (s/coll-of string?)
-               #(gen/vector (s/gen string?) 1 3)))
-
+(s/def ::foo (s/coll-of string?))
 
 (defn -main
   [& args]
